@@ -1,0 +1,27 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px; color: purple">
+    Two-Way Data Binding (class <=> view) [(ngModel)]
+  </p>
+</div>
+<mat-form-field appearance="outline">
+  <mat-label>Enter Something...</mat-label>
+  <input matInput [(ngModel)]="message" />
+</mat-form-field>
+<p>{{ message }}</p>
+
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px; color: orangered">
+    Two-Way Data Binding With SIGNALS
+  </p>
+</div>
+
+<mat-form-field appearance="outline">
+  <mat-label>Enter Something</mat-label>
+  <input
+    matInput
+    [value]="username()"
+    (input)="username.set($any($event.target).value)"
+  />
+</mat-form-field>
+
+<p>{{ "Using Signals: " + username() }}</p>
