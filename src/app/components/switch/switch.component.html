@@ -1,0 +1,27 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px; color: purple">&#64;switch</p>
+</div>
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Select Role</mat-label>
+    <mat-select
+      [value]="userRole()"
+      (selectionChange)="userRole.set($event.value)"
+    >
+      <mat-option value="Admin">Admin</mat-option>
+      <mat-option value="User">User</mat-option>
+      <mat-option value="Guest">Guest</mat-option>
+      <mat-option value="Unknown">Unknown</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  @switch(userRole()){ @case('Admin'){
+  <p>Welcome Admin</p>
+  } @case('User'){
+  <p>Welcome User</p>
+  } @case('Guest'){
+  <p>Welcome Guest</p>
+  } @default {
+  <p>Unknown Role</p>
+  } }
+</div>

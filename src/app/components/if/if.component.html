@@ -1,0 +1,25 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px; color: purple">&#64;if</p>
+</div>
+<div class="container">
+  @if(isLoggedIn){
+  <p>Welcome Satish</p>
+  }@else{
+  <p>Please Login First</p>
+  }
+
+  <!-- Alias never works -->
+  <!-- @if(user as u){
+  <p>Hello, {{ u.name }}</p>
+  } -->
+
+  @if(user){
+  <p>Hello, {{ user.name }}</p>
+  @if(user.isAdmin){
+  <p>You have Admin Access</p>
+  } @else {
+  <p>You are a normal user</p>
+  } } @else {
+  <p>No user information avaliable</p>
+  }
+</div>
