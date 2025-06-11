@@ -1,0 +1,52 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px; color: purple">&#64;for</p>
+</div>
+<div class="container">
+  <ul>
+    <!-- <li *ngFor="let fruit of fruits">{{ fruit }}</li> -->
+
+    @for(fruit of fruits; track $index ){
+    <li>{{ fruit }}</li>
+    }
+  </ul>
+
+  <ul>
+    @for(item of items; track $index; let in = $index){
+    <li>{{ $index + 1 }} : {{ item }}</li>
+    }
+  </ul>
+
+  <ul>
+    @for(user of users; track $index; let isFirst = $first; let isLast = $last;
+    let isEven = $even; let isOdd = $odd){
+    <li>
+      {{ user.name }}
+      <span> @if(isFirst){(First)}</span>
+      <span> @if(isLast){(Last)}</span>
+      <span> @if(isEven){(Even position)}</span>
+      <span> @if(isOdd){(Odd position)}</span>
+    </li>
+    }
+  </ul>
+
+  <ul>
+    @for(product of products; track $index){ @if(product.inStock){
+    <li>{{ product.name }}</li>
+    } }
+  </ul>
+
+  @for(category of categories; track $index){
+  <h3>{{ category.name }}</h3>
+  <ul>
+    @for(item of category.items; track $index){
+    <li>{{ item }}</li>
+    }
+  </ul>
+  }
+
+  <ul>
+    @for(item of myObj |keyvalue; track $index ){
+    <li>{{ item.key }} : {{ item.value }}</li>
+    }
+  </ul>
+</div>
