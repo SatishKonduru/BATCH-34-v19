@@ -11,10 +11,11 @@ import { TwoWayDataBindingComponent } from './components/two-way-data-binding/tw
 import { IfComponent } from './components/if/if.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { ForComponent } from './components/for/for.component';
+import { SenderComponent } from './components/sender/sender.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ForComponent],
+  imports: [RouterOutlet, ForComponent, SenderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
