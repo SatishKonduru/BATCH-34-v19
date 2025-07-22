@@ -1,0 +1,15 @@
+<app-topic [topic]="topicName"></app-topic>
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Enter Something...</mat-label>
+    <input matInput #inputValue value="SATISH" />
+  </mat-form-field>
+  <button mat-flat-button color="warn" (click)="getValueWitRef(inputValue)">
+    With Ref. Name
+  </button>
+  <button mat-raised-button color="primary" (click)="getValueWithViewChild()">
+    With &#64;ViewChild
+  </button>
+  <p>Input Value with Ref. Name: {{ inputValueWithRef() }}</p>
+  <p>Input Value with ViewChild: {{ inputValueWithViewChild() }}</p>
+</div>
