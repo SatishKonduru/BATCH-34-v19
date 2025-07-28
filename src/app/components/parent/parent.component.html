@@ -1,0 +1,18 @@
+<app-topic [topic]="topicName"></app-topic>
+<div class="container">
+  <div style="border: 2px solid blue">
+    <h2>👨🏼 I am Parent</h2>
+    <!-- <app-child></app-child> -->
+    <!-- No Need to project here . We will create childComponent (into DOM) dinamically (at runtime)-->
+    <!-- We have to provide placeholder for Child component -->
+    <ng-template #childHost></ng-template>
+    <button mat-raised-button (click)="callChildMethod()">
+      Call Child's Method
+    </button>
+    <p>
+      <strong>NOTE:</strong> Child is created Dynamically and receives input via
+      Signals
+    </p>
+    <p><strong>Child's Message: </strong>{{ childMessage }}</p>
+  </div>
+</div>
