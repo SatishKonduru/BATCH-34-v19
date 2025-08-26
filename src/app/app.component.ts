@@ -15,10 +15,21 @@ import { SenderComponent } from './components/sender/sender.component';
 import { ViewChildComponent } from './components/view-child/view-child.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
-
+import { ModalHeaderComponent } from './components/modal-header/modal-header.component';
+import { ModalBodyComponent } from './components/modal-body/modal-body.component';
+import { ModalFooterComponent } from './components/modal-footer/modal-footer.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, QuestionnaireComponent],
+  imports: [
+    RouterOutlet,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ModalFooterComponent,
+    ModalComponent,
+    MatButtonModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

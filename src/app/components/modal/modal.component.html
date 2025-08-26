@@ -1,0 +1,42 @@
+<div class="container" style="background-color: antiquewhite">
+  <div class="modal-container">
+    <!-- Inject Header -->
+    <div class="modal-header">
+      <ng-content select="app-modal-header"></ng-content>
+    </div>
+
+    <!-- Inject Body -->
+    <div class="modal-body">
+      <ng-content select="[modal-body]"></ng-content>
+    </div>
+
+    <!-- Inject Footer -->
+    <div class="modal-footer">
+      <ng-content select=".modal-footer"></ng-content>
+    </div>
+  </div>
+
+  <div class="debug-info">
+    <p>
+      <strong>Header Projected?</strong>
+      {{ headerAvailable() ? "✅YES" : "❌No" }}
+    </p>
+    <p>
+      <strong>Body Projected?</strong>
+      {{ bodyAvailable() ? "✅YES" : "❌No" }}
+    </p>
+    <p>
+      <strong>Footer Projected?</strong>
+      {{ footerAvailable() ? "✅YES" : "❌No" }}
+    </p>
+  </div>
+
+  <!-- Showing method return from child (Modal-Body) -->
+  <button mat-raised-button color="warn" (click)="getBodyMessage()">
+    Get Body Message
+  </button>
+
+  <p style="margin-top: 1rem; color: green; font-weight: bold">
+    {{ bodyMessage() }}
+  </p>
+</div>

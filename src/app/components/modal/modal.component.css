@@ -1,0 +1,31 @@
+.modal-container {
+  width: 400px;
+  margin: auto;
+  margin-top: 100px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  /* display: flex;/ */
+  flex-direction: column;
+}
+.modal-header,
+.modal-body {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+.debug-info {
+  margin-top: 20px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px dashed #ccc;
+  color: #333;
+}
