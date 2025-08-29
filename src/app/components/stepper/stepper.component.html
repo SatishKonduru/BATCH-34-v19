@@ -1,0 +1,39 @@
+<!-- <app-topic [topic]="topicName"></app-topic>
+<div class="stepper-container">
+  <div class="step-header">
+    <div
+      *ngFor="let title of stepTitles; let i = index"
+      class="step-tab"
+      [class.active]="i === currentStepIndex"
+      (click)="goToStep(i)"
+    >
+      {{ title }}
+    </div>
+  </div>
+  <div class="step-content">
+    <ng-container
+      *ngIf="steps?.length"
+      [ngTemplateOutlet]="steps.toArray()[currentStepIndex]?.templateRef"
+    ></ng-container>
+  </div>
+</div> -->
+
+<app-topic [topic]="topicName"></app-topic>
+<div class="stepper-container">
+  <div class="step-header">
+    @for(title of stepTitles(); let i = $index; track i){
+    <div
+      class="step-tab"
+      [class.active]="i === currentStepIndex()"
+      (click)="goToStep(i)"
+    >
+      {{ title }}
+    </div>
+    }
+  </div>
+  <div>
+    @if(currentStepTempate()){
+    <ng-container [ngTemplateOutlet]="currentStepTempate()"></ng-container>
+    }
+  </div>
+</div>

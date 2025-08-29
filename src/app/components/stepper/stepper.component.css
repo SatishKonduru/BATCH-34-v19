@@ -1,0 +1,20 @@
+.stepper-container {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.step-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.step-tab {
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+.step-tab.active {
+  background-color: #3f51b6;
+  color: #fff;
+}

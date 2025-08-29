@@ -1,3 +1,4 @@
+import { StepperComponent } from './components/stepper/stepper.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TestComponent } from './components/test/test.component';
@@ -20,16 +21,10 @@ import { ModalBodyComponent } from './components/modal-body/modal-body.component
 import { ModalFooterComponent } from './components/modal-footer/modal-footer.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
+import { StepComponent } from './components/step/step.component';
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    ModalHeaderComponent,
-    ModalBodyComponent,
-    ModalFooterComponent,
-    ModalComponent,
-    MatButtonModule,
-  ],
+  imports: [RouterOutlet, MatButtonModule, StepperComponent, StepComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
