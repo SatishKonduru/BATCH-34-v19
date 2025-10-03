@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">Course Details</div>
+    <div class="card-body">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            @for(key of courseIds; track $index){
+            <th scope="col">
+              {{ key }}
+            </th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          @for(course of courseList; track $index){
+          <tr>
+            @for(key of courseIds; track $index){
+            <td>
+              {{ course[key] }}
+            </td>
+            }
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -22,9 +22,16 @@ import { ModalFooterComponent } from './components/modal-footer/modal-footer.com
 import { ModalComponent } from './components/modal/modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { StepComponent } from './components/step/step.component';
+import { HeaderComponent } from './components/header/header.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, StepperComponent, StepComponent],
+  imports: [
+    RouterOutlet,
+    MatButtonModule,
+    StepperComponent,
+    StepComponent,
+    HeaderComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
