@@ -20,12 +20,22 @@
       <mat-icon class="check-icon">check</mat-icon>
       Course Details
     </button>
+    <button
+      mat-raised-button
+      color="warn"
+      [routerLink]="'/docs'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon class="check-icon">check</mat-icon>
+      Documentation
+    </button>
   </span>
 </mat-toolbar>
 
 <div
   class="container"
-  style="border: 2px dashed green; border-radius: 5px; width: 90%; height: 80vh"
+
 >
   <router-outlet></router-outlet>
 </div>
