@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           @for(course of courseList; track $index){
-          <tr>
+          <tr (click)="onSelect(course)">
             @for(key of courseIds; track $index){
             <td>
               {{ course[key] }}

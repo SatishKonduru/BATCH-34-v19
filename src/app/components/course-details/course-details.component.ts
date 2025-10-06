@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-details',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './course-details.component.css',
 })
 export class CourseDetailsComponent {
+  // constructor(private _router: Router){}
+  private _router = inject(Router);
   courseList = [
     { id: 1, name: 'Angular', tutor: 'Satish' },
     { id: 2, name: 'React', tutor: 'RSK' },
@@ -20,5 +23,9 @@ export class CourseDetailsComponent {
   ngOnInit() {
     this.courseIds = Object.keys(this.courseList[0]);
     console.log(this.courseIds);
+  }
+
+  onSelect(course: any) {
+    this._router.navigate(['/selectedCourse', JSON.stringify(course)]);
   }
 }
