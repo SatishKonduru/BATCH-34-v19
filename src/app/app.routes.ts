@@ -8,6 +8,11 @@ import { SelectedCourseComponent } from './components/selected-course/selected-c
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/course',
+    pathMatch: 'full',
+  },
+  {
     path: 'header',
     component: HeaderComponent,
   },
@@ -17,6 +22,10 @@ export const routes: Routes = [
   },
   {
     path: 'courseDetails',
+    component: CourseDetailsComponent,
+  },
+  {
+    path: 'courseDetails/:id',
     component: CourseDetailsComponent,
   },
   {
