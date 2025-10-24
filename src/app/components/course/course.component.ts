@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CourseService } from '../../services/course.service';
 
 @Component({
   selector: 'app-course',
@@ -7,12 +8,22 @@ import { Component } from '@angular/core';
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
 })
-export class CourseComponent {
-  courseList = [
-    { id: 1, name: 'Angular', tutor: 'Satish' },
-    { id: 2, name: 'React', tutor: 'RSK' },
-    { id: 3, name: 'Angular Materail', tutor: 'Satish Konduru' },
-    { id: 4, name: 'Bootstrap', tutor: 'Renu' },
-    { id: 5, name: 'NodeJS', tutor: 'Nagesh' },
-  ];
+export class CourseComponent implements OnInit {
+  courseList = [];
+  // constructor(private _courseService: CourseService) {}
+  private _courseService = inject(CourseService);
+  ngOnInit(): void {
+    this.getCourseNames();
+  }
+
+  getCourseNames() {
+    this._courseService.courseNames().subscribe({
+      next: (res: any) => {
+        this.courseList = res;
+      },
+      error: (err: any) => {
+        console.error('Error while getting Courses: ', err);
+      },
+    });
+  }
 }
