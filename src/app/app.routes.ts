@@ -1,3 +1,4 @@
+import { computed, Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { CourseComponent } from './components/course/course.component';
@@ -5,12 +6,18 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
 import { DocsComponent } from './components/docs/docs.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SelectedCourseComponent } from './components/selected-course/selected-course.component';
+import { HOME } from '@angular/cdk/keycodes';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/course',
+    redirectTo: '/home',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'header',
