@@ -8,6 +8,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SelectedCourseComponent } from './components/selected-course/selected-course.component';
 import { HOME } from '@angular/cdk/keycodes';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -42,6 +45,15 @@ export const routes: Routes = [
   {
     path: 'selectedCourse/:course',
     component: SelectedCourseComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard],
   },
   {
     path: '**',

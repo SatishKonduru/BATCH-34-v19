@@ -38,6 +38,7 @@ export class CourseDetailsComponent {
       error: (err: any) => {
         console.error('Error while getting Courses: ', err);
       },
+      complete: () => console.log('Operation completed'),
     });
   }
   onSelect(course: any) {
