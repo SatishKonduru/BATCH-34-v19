@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { editProfileGuard } from './guards/edit-profile.guard';
 
 export const routes: Routes = [
   {
@@ -54,6 +56,11 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [authGuard],
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    canDeactivate: [editProfileGuard],
   },
   {
     path: '**',

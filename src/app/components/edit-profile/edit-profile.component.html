@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Edit Profile</h2>
+  <form #profileForm="ngForm">
+    <div class="form-group row col-10">
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name: </mat-label>
+        <input
+          matInput
+          type="text"
+          name="name"
+          [(ngModel)]="user.name"
+          (ngModelChange)="onInputChange()"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-group row col-10">
+      <mat-form-field appearance="outline">
+        <mat-label>Email: </mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          [(ngModel)]="user.email"
+          (ngModelChange)="onInputChange()"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-group row col-10">
+      <mat-form-field appearance="outline">
+        <mat-label>Bio: </mat-label>
+        <textarea
+          matInput
+          name="bio"
+          [(ngModel)]="user.bio"
+          (ngModelChange)="onInputChange()"
+          row="3"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button mat-raised-button (click)="saveChanges()">Save Changes</button>
+      </div>
+      <div class="col-6">
+        <button mat-button [routerLink]="['/home']">Home</button>
+      </div>
+    </div>
+    <div class="row mt-5">
+      @if(!isSaved){
+      <h2>⚠️ You have unsaved Changes</h2>
+      }
+    </div>
+  </form>
+</div>
