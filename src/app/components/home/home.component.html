@@ -1,14 +1,75 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="d-flex gap-2">
       <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
       <button mat-raised-button color="warn" [routerLink]="['/dashboard']">Dashboard</button>
     </div>
   </div>
-</div>
-<hr />
+</div> -->
+<!-- <hr />
 <div class="container">
 <h2>canDeactivate Guard Example</h2>
 <button mat-stroked-button [routerLink]="['/edit-profile']"> Edit Profile</button>
 </div>
 
+ 1. using when condition -->
+<div class="container">
+  <h5 style="text-align: center; color: tomato">Differable Views</h5>
+
+
+</div>
+
+<div class="container">
+  <h2>&#64;defer using 'when' condition</h2>
+  <button mat-stroked-button (click)="showDetails.set(true)">Load Details</button>
+  @defer(when showDetails()){
+<app-course-details></app-course-details>
+  }@placeholder {
+    <p>Click the button to load Course Details....</p>
+  }
+
+</div>
+
+<div class="container">
+  <h2>&#64;defer with timer</h2>
+  @defer(on timer(5000)){
+    <app-course-details></app-course-details>
+    <p>Loaded after 5sec Delay</p>
+  }@placeholder {
+    <mat-spinner></mat-spinner>
+    <p>Waiting for 5sec...</p>
+  }
+</div>
+<!-- 3. on  viewport-->
+ <div class="container">
+  <h2>Scroll down to load the image</h2>
+  <div style="height: 100vh; background: #eee;">
+    <p>Keep scrolling</p>
+  </div>
+  @defer(on viewport){
+    <img src="https://picsum.photos/400/200" alt="Lazy image" class="p-5">
+  }@placeholder{
+    <p>Image will load when visible in ViewPort...</p>
+  }
+ </div>
+
+ <!-- on Interaction -->
+<div class="container">
+  <h2> Defer loading a large component</h2>
+
+  @defer(on interaction){
+    @defer(when true; prefetch on idle){
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+      <app-course-details></app-course-details>
+
+  }}@placeholder {
+      <button mat-button>Click to load course details</button>
+    }
+</div>

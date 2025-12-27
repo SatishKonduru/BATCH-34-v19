@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { editProfileGuard } from './guards/edit-profile.guard';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
   {
@@ -61,6 +62,16 @@ export const routes: Routes = [
     path: 'edit-profile',
     component: EditProfileComponent,
     canDeactivate: [editProfileGuard],
+  },
+  // The following route configuration leads to Eager Loading
+  // {
+  //   path: 'about',
+  //   component: AboutComponent,
+  // },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./pages/about/about.component').then((c) => c.AboutComponent),
   },
   {
     path: '**',
