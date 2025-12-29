@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- <h5>First Name: {{ firstName }}</h5>
+  <h5>Last Name: {{ lastName }}</h5>
+  <h5>Full Name: {{ firstName + " " }} {{ lastName }}</h5> -->
+  @let fullName = firstName() + " " + lastName() ;
+  <h4>Hello, {{ fullName }}</h4>
+</div>
+
+<!-- using inside of @for loop -->
+<!-- <div class="container">
+  @for(user of [ { name: 'Satish', age: 40 }, { name: 'RSK', age: 17 }]; track
+  user.name){ @let isPerson = user.age < 18 ;
+  <div>
+    {{ user.name }} - <strong>{{ isPerson ? "Minor" : "Adult" }}</strong>
+  </div>
+  }
+</div> -->
+
+<!-- with computed values -->
+<!-- <div class="container">
+  @let price = 999; @let discount = 0.15; @let finalPrice = price -(price *
+  discount) ;
+
+  <h5>Original Price: ₹ {{ price }}</h5>
+  <h5>Discount Percentage: {{ discount * 100 }} %</h5>
+  <h5>Final Price: ₹{{ finalPrice }} %</h5>
+</div> -->
+
+<!-- <div class="container">
+  @let y = 10;
+  {{ y }}
+</div>
+<div class="container">
+  {{ y }}
+</div> -->
+
+<!-- In Angular we have 2 Kinds of Blocks
+1. Structural Blocks -> @if, @for, @switch , @defer => inner scope
+
+2. Plain HTML Blocks -> div, section, p, => Doesn't create a new Scope
+-->
+<!--
+@let y = 10;
+<div>{{ y }}</div>
+<div>{{ y }}</div>
+<div>{{ y }}</div>
+<div>{{ y }}</div>
+<div>{{ y }}</div>
+<div>{{ y }}</div>
+<div>{{ y }}</div>
+<div>{{ y }}</div> -->
+@let y = 20 ; @if(true){ @let y = 10;
+<p>{{ y }}</p>
+}
+<div>
+  {{ y }}
+</div>

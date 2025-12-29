@@ -14,12 +14,19 @@ import { authGuard } from './guards/auth.guard';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { editProfileGuard } from './guards/edit-profile.guard';
 import { AboutComponent } from './pages/about/about.component';
+import { LetComponent } from './components/let/let.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/let',
     pathMatch: 'full',
+  },
+  {
+    path: 'let',
+    // component: LetComponent
+    loadComponent: () =>
+      import('./components/let/let.component').then((c) => c.LetComponent),
   },
   {
     path: 'home',
