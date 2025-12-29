@@ -1,0 +1,23 @@
+<!-- <div class="container">
+  <h5>Username: {{ userName }}</h5>
+</div> -->
+
+<!--
+httpResource() returns 'Resource' object
+
+1. value() => actual API Data
+2. isLoading() => Loading State
+3. error() => error object
+4. reload() => refetch
+5. status() => idle/ loading/ success / error
+
+-->
+<div class="container">
+  @if(users.isLoading()){
+  <p>Loading users....</p>
+  } @else if(users.error()){
+  <p>Failed to load users!</p>
+  } @else { @for(user of users.value(); track user.id ){
+  <p>{{ user.address.city }}</p>
+  } }
+</div>
