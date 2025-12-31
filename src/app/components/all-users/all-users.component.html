@@ -1,0 +1,27 @@
+<div class="container">
+  <h3>Users List...</h3>
+  @if(users.isLoading()){
+  <p>Loading Users....</p>
+  } @else if(users.error()){
+  <p>Failed to Load Users</p>
+  } @else { @if(users.value()){
+  <table class="table table-responsive table-striped selected">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(u of users.value(); track u.id){
+      <tr (click)="onSelect(u)">
+        <td>{{ u.id }}</td>
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } }
+</div>

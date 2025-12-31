@@ -19,15 +19,28 @@ import { LetComponent } from './components/let/let.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/users',
+    redirectTo: '/allUsers',
     pathMatch: 'full',
+  },
+  {
+    path: 'allUsers',
+    loadComponent: () =>
+      import('./components/all-users/all-users.component').then(
+        (c) => c.AllUsersComponent
+      ),
   },
   {
     path: 'users',
     loadComponent: () =>
       import('./components/user/user.component').then((c) => c.UserComponent),
   },
-
+  {
+    path: 'userDetails/:id',
+    loadComponent: () =>
+      import('./components/user-details/user-details.component').then(
+        (c) => c.UserDetailsComponent
+      ),
+  },
   {
     path: 'let',
     // component: LetComponent

@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Specific User Details....</h2>
+  @if(user.isLoading()){
+  <p>Loading User Details....</p>
+  } @else if(user.error()){
+  <p>Failed to Loading Server</p>
+  } @else { @if(user.value()){ @let userInfo = user.value();
+  <div>
+    <p><b>ID</b>: {{ userInfo.id }}</p>
+    <p><b>Name</b>: {{ userInfo.name }}</p>
+    <p><b>Email</b>: {{ userInfo.email }}</p>
+    <p><b>Phone</b>: {{ userInfo.phone }}</p>
+  </div>
+  } }
+</div>
