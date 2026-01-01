@@ -19,8 +19,15 @@ import { LetComponent } from './components/let/let.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/allUsers',
+    redirectTo: '/userSearch',
     pathMatch: 'full',
+  },
+  {
+    path: 'userSearch',
+    loadComponent: () =>
+      import('./components/user-search/user-search.component').then(
+        (c) => c.UserSearchComponent
+      ),
   },
   {
     path: 'allUsers',

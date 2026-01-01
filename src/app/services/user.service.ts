@@ -21,4 +21,23 @@ export class UserService {
       };
     });
   }
+
+  getUserByName(userName: Signal<string | null>) {
+    return httpResource<User[]>(() => {
+      const name = userName().trim();
+      if (!name) return null;
+      return {
+        url: 'https://jsonplaceholder.typicode.com/users',
+        params: { q: name },
+      };
+    });
+  }
+
+  // because we are using httpResource<User[]>
+  // its value type is => User[] | null
+
+  // Why?
+  // -> Before API call => null
+  // -> While Loading => null
+  // -> After Success only => User[]
 }
