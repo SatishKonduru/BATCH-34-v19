@@ -19,8 +19,15 @@ import { LetComponent } from './components/let/let.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/userSearch',
+    redirectTo: '/createUser',
     pathMatch: 'full',
+  },
+  {
+    path: 'createUser',
+    loadComponent: () =>
+      import('./components/create-user/create-user.component').then(
+        (c) => c.CreateUserComponent
+      ),
   },
   {
     path: 'userSearch',

@@ -1,0 +1,41 @@
+<div class="container">
+  <h3>Add New User</h3>
+  <form #f="ngForm" (ngSubmit)="userFormSubmit(f)">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name:</mat-label>
+        <input matInput name="name" ngModel required />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Email:</mat-label>
+        <input matInput name="email" ngModel required />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone:</mat-label>
+        <input matInput name="phone" ngModel required />
+      </mat-form-field>
+    </div>
+    <button mat-stroked-button type="submit">Create User</button>
+    <button mat-stroked-button type="reset">Reset</button>
+  </form>
+  <hr />
+
+  @if(createUserResource.isLoading()){
+  <p>Saving New User...</p>
+  } @else if(createUserResource.error()){
+  <p style="color: red">Faild to Create New User!</p>
+  } @else if(createUserResource.value()){
+  <div>
+    <h3>✅ User Created</h3>
+    <pre>
+      {{ createUserResource.value() | json }}
+    </pre>
+  </div>
+  }
+</div>

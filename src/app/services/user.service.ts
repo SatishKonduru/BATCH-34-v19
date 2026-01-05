@@ -40,4 +40,16 @@ export class UserService {
   // -> Before API call => null
   // -> While Loading => null
   // -> After Success only => User[]
+
+  createUser(newUser: Signal<User | null>) {
+    return httpResource<User>(() => {
+      const user = newUser();
+      if (!user) return null;
+      return {
+        url: 'https://jsonplaceholder.typicode.com/users',
+        method: 'POST',
+        body: user,
+      };
+    });
+  }
 }
