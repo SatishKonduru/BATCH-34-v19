@@ -1,11 +1,12 @@
-import { httpResource } from '@angular/common/http';
-import { Injectable, Signal } from '@angular/core';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { inject, Injectable, Signal } from '@angular/core';
 import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  // private _http = inject(HttpClient)
   users = httpResource<User[]>(() => ({
     url: 'https://jsonplaceholder.typicode.com/users',
   }));
@@ -41,6 +42,10 @@ export class UserService {
   // -> While Loading => null
   // -> After Success only => User[]
 
+  // createUserInTreditional(newUser: any) {
+  //  return  this._http.post<any>('https://jsonplaceholder.typicode.com/users', newUser)
+  // }
+
   createUser(newUser: Signal<User | null>) {
     return httpResource<User>(() => {
       const user = newUser();
@@ -49,6 +54,31 @@ export class UserService {
         url: 'https://jsonplaceholder.typicode.com/users',
         method: 'POST',
         body: user,
+      };
+    });
+  }
+
+  // Update (PUT / PATCH) => Recommended is PATCH
+  updateUser(updateSignal: Signal<{ id: number; data: Partial<User> } | null>) {
+    return httpResource<User>(() => {
+      const payload = updateSignal();
+      if (!payload) return null;
+      return {
+        url: `https://jsonplaceholder.typicode.com/users/${payload.id}`,
+        method: 'PATCH',
+        body: payload.data,
+      };
+    });
+  }
+
+  // Delete
+  deleteUser(deleteId: Signal<number | null>) {
+    return httpResource(() => {
+      const id = deleteId();
+      if (!id) return null;
+      return {
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        method: 'DELETE',
       };
     });
   }

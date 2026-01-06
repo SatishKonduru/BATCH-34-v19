@@ -39,3 +39,35 @@
   </div>
   }
 </div>
+
+<div class="container">
+  <h3>Update User</h3>
+  <button mat-raised-button (click)="update()"> Update Username</button>
+
+  @if(updateResource.isLoading()){
+    <p>Updating....</p>
+  }
+  @else if(updateResource.error()){
+    <p> Error while updating user</p>
+  }
+  @else if(updateResource.value()){
+    <pre>
+      {{updateResource.value() | json}}
+    </pre>
+  }
+</div>
+
+<div class="container">
+  <h3>Delete User</h3>
+  <button mat-stroked-button (click)="delete()">Delte User</button>
+
+  @if(deleteResource.isLoading()){
+    <p>Deleting.....</p>
+  }
+  @else if(deleteResource.error()){
+    <p>Error while deleting user!</p>
+  }
+  @else if(deleteResource.value()){
+    <p>✅ User Deleted</p>
+  }
+</div>

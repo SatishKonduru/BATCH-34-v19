@@ -23,7 +23,13 @@ export class CreateUserComponent {
   newUser = signal<User | null>(null);
   private _userService = inject(UserService);
 
+  updateSignal = signal<{ id: number; data: any } | null>(null);
+
+  deleteID = signal<number | null>(null);
   createUserResource = this._userService.createUser(this.newUser);
+  updateResource = this._userService.updateUser(this.updateSignal);
+
+  deleteResource = this._userService.deleteUser(this.deleteID);
   userFormSubmit(userForm: any) {
     // console.log('form Values: ', userForm.value);
     if (userForm.valid) {
@@ -34,5 +40,17 @@ export class CreateUserComponent {
       });
     }
     // userForm.reset();
+  }
+  update() {
+    this.updateSignal.set({
+      id: 1,
+      data: {
+        name: 'Updated NAME',
+      },
+    });
+  }
+
+  delete() {
+    this.deleteID.set(1);
   }
 }
