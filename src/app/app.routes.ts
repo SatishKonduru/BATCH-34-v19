@@ -19,28 +19,35 @@ import { LetComponent } from './components/let/let.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/createUser',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
     path: 'createUser',
     loadComponent: () =>
       import('./components/create-user/create-user.component').then(
-        (c) => c.CreateUserComponent
+        (c) => c.CreateUserComponent,
       ),
   },
   {
     path: 'userSearch',
     loadComponent: () =>
       import('./components/user-search/user-search.component').then(
-        (c) => c.UserSearchComponent
+        (c) => c.UserSearchComponent,
       ),
   },
   {
     path: 'allUsers',
     loadComponent: () =>
       import('./components/all-users/all-users.component').then(
-        (c) => c.AllUsersComponent
+        (c) => c.AllUsersComponent,
+      ),
+  },
+  {
+    path: 'tdfRegister',
+    loadComponent: () =>
+      import('./forms/tdf-register/tdf-register.component').then(
+        (c) => c.TdfRegisterComponent,
       ),
   },
   {
@@ -52,7 +59,7 @@ export const routes: Routes = [
     path: 'userDetails/:id',
     loadComponent: () =>
       import('./components/user-details/user-details.component').then(
-        (c) => c.UserDetailsComponent
+        (c) => c.UserDetailsComponent,
       ),
   },
   {

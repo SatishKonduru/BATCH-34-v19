@@ -1,0 +1,91 @@
+<div class="container mt-3 mx-auto">
+  <div class="mat-elevation-z10 p-2 rounded-3">
+    <div class="row">
+      <h3>Signal Based Register Form (TDF)</h3>
+    </div>
+    <form #userForm="ngForm">
+      <div class="col-6">
+        <!-- username -->
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            name="username"
+            [ngModel]="username()"
+            (ngModelChange)="username.set($event)"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <!-- Email -->
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            name="email"
+            [ngModel]="email()"
+            (ngModelChange)="email.set($event)"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- gender -->
+      <div class="col-6">
+        <label class="selection-title">Gender</label>
+        <mat-radio-group
+          name="gnder"
+          [ngModel]="gender()"
+          (ngModelChange)="gender.set($event)"
+        >
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <!-- Country -->
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Country</mat-label>
+          <mat-select
+            name="country"
+            [ngModel]="country()"
+            (ngModelChange)="country.set($event)"
+          >
+            @for (c of countries; track c) {
+              <mat-option [value]="c">{{ c }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-10">
+        <!-- Terms & conditions -->
+        <mat-checkbox
+          name="acceptTerms"
+          [ngModel]="acceptTerms()"
+          (ngModelChange)="acceptTerms.set($event)"
+          >I agree to the terms & conditions</mat-checkbox
+        >
+      </div>
+      <div class="col-6 mt-3">
+        <button mat-button type="submit" color="primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <!-- preview -->
+  <pre>
+    {{
+      {
+        username: username(),
+        email: email(),
+        gender: gender(),
+        country: country(),
+        acceptance: acceptTerms(),
+      } | json
+    }}
+   </pre
+  >
+</div>

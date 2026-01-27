@@ -13,7 +13,7 @@
 </div>
 
  1. using when condition -->
-<div class="container">
+<!-- <div class="container">
   <h5 style="text-align: center; color: tomato">Differable Views</h5>
 
 
@@ -39,9 +39,9 @@
     <mat-spinner></mat-spinner>
     <p>Waiting for 5sec...</p>
   }
-</div>
+</div> -->
 <!-- 3. on  viewport-->
- <div class="container">
+ <!-- <div class="container">
   <h2>Scroll down to load the image</h2>
   <div style="height: 100vh; background: #eee;">
     <p>Keep scrolling</p>
@@ -51,10 +51,10 @@
   }@placeholder{
     <p>Image will load when visible in ViewPort...</p>
   }
- </div>
+ </div> -->
 
  <!-- on Interaction -->
-<div class="container">
+<!-- <div class="container">
   <h2> Defer loading a large component</h2>
 
   @defer(on interaction){
@@ -72,4 +72,10 @@
   }}@placeholder {
       <button mat-button>Click to load course details</button>
     }
+</div> -->
+<div class="container">
+  <h3 style="text-align: center;">Signal based Forms</h3>
+  <button mat-mini-fab matTooltip="Register" [routerLink]="['/tdfRegister']">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>

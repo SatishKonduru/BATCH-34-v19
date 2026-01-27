@@ -1,5 +1,6 @@
 @import "../node_modules/@fontsource/poppins/index.css";
 
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 * {
   padding: 0;
   box-sizing: border-box;
