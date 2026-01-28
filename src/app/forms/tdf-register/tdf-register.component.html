@@ -13,7 +13,14 @@
             name="username"
             [ngModel]="username()"
             (ngModelChange)="username.set($event)"
+            required
+            #usernameCtrl="ngModel"
           />
+          @if(usernameCtrl.touched && usernameCtrl.invalid){
+            <mat-error >
+              Username is Required
+            </mat-error>
+          }
         </mat-form-field>
       </div>
       <div class="col-6">
@@ -25,7 +32,21 @@
             name="email"
             [ngModel]="email()"
             (ngModelChange)="email.set($event)"
+            required
+            email
+            #emailCtrl="ngModel"
           />
+          @if(emailCtrl.touched && emailCtrl.errors?.['required']){
+            <mat-error>
+              Email is Required
+            </mat-error>
+          }
+
+          @if(emailCtrl.touched && emailCtrl.errors?.['email']){
+            <mat-error>
+              Invalid Email format
+            </mat-error>
+          }
         </mat-form-field>
       </div>
 
