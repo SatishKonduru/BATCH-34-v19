@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="col-10 mx-auto mt-4">
+    <h4>Signal Baased Reactive Forms</h4>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <!-- username -->
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <!-- skills -->
+    <div formGroupName="skills">
+      @for (skill of skills.controls; let i = $index; track i) {
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Skill {{ i + 1 }}</mat-label>
+            <input matInput [formControlName]="i" />
+          </mat-form-field>
+          <button mat-icon-button type="button" (click)="removeSkill(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      }
+    </div>
+    <!-- Add Skills -->
+    <button mat-stroked-button (click)="addSkill()" [disabled]="!canAddMore()">
+      Add Skill
+    </button>
+
+    <!-- Skill count -->
+    <p>Skills Added: {{ skillCount() }}</p>
+
+    <!-- submit -->
+    <button mat-raised-button [disabled]="form.invalid">Submit</button>
+  </form>
+
+  <hr />
+  <!-- Preview -->
+  <pre>
+    {{ form.value | json }}
+   </pre
+  >
+</div>

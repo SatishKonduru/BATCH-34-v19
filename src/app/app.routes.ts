@@ -51,6 +51,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'reactiveRegister',
+    loadComponent: () =>
+      import('./forms/reactive-register/reactive-register.component').then(
+        (c) => c.ReactiveRegisterComponent,
+      ),
+  },
+  {
     path: 'users',
     loadComponent: () =>
       import('./components/user/user.component').then((c) => c.UserComponent),
